@@ -1,15 +1,23 @@
 const recipes = require('./recipes')
 const utils = require('./utils')
 
+function findNewRecipe() {
+  var number = utils.randomIntFromRange(recipes.length - 1)
+  var item = recipes.splice(number, 1)[0]
+
+  if (!lastPlan.includes(item.name)) {
+    return item
+  } else {
+    return findNewRecipe()
+  }
+}
+
 function generateMealPlan(lastPlan) {
   var count = 7
   var list = []
 
   while (count > 0) {
-    var number = utils.randomIntFromRange(recipes.length)
-    // if item index in lastPlan, find another
-    var item = recipes.splice(number, 1)[0]
-    list.push(item)
+    list.push(findNewRecipe())
     count = count - 1
   }
 
@@ -17,7 +25,7 @@ function generateMealPlan(lastPlan) {
 }
 
 var lastPlan = utils.getLastPlan()
-var mealplan = generateMealPlan(lastPlan)
-utils.savePlan(mealplan)
+var mealPlan = generateMealPlan(lastPlan)
 
-console.log(mealplan)
+utils.savePlan(mealPlan)
+console.log(mealPlan)
