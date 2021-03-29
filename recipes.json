@@ -1,164 +1,191 @@
 [
   {
     "name": "Porkchop",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["pork"],
+    "style": ["american"]
   },
   {
-    "name": "Kabobs",
-    "course": "",
+    "name": "Shrimp Kabobs",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["shrimp"],
+    "style": ["seafood"]
   },
   {
     "name": "Meatloaf",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef"],
+    "style": ["american"]
   },
   {
-    "name": "Chicken",
-    "course": "",
+    "name": "Chicken & Rice",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["chicken"],
+    "style": ["american"]
   },
   {
-    "name": "Fish",
-    "course": "",
+    "name": "Salmon Patties",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["fish"],
+    "style": ["seafood"]
   },
   {
-    "name": "Shrimp",
-    "course": "",
+    "name": "Lemon Shrimp",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["shrimp"],
+    "style": ["seafood"]
   },
   {
     "name": "Sushi",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["fish"],
+    "style": ["seafood"]
   },
   {
     "name": "Pancakes",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": [""],
+    "style": ["breakfast"]
   },
   {
-    "name": "Bread",
-    "course": "",
-    "size": "main",
-    "protein": ""
+    "name": "Soda Bread",
+    "course": "appetizer",
+    "size": "side",
+    "protein": [""],
+    "style": ["irish"]
   },
   {
-    "name": "Beer",
-    "course": "",
+    "name": "Beer Butt Chicken",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["chicken"],
+    "style": ["american"]
   },
   {
     "name": "Beef Roast",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef"],
+    "style": ["american"]
   },
   {
     "name": "Pork Roast",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["pork"],
+    "style": ["american"]
   },
   {
     "name": "Chicken Parm",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["chicken"],
+    "style": ["italian"]
   },
   {
-    "name": "Lemon Chicken",
-    "course": "",
+    "name": "Lemon Pepper Chicken",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["chicken"],
+    "style": ["american"]
   },
   {
     "name": "Broasted Chicken",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["chicken"],
+    "style": ["american"]
   },
   {
     "name": "Hot Dogs",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "pork"],
+    "style": ["american"]
   },
   {
     "name": "Beer Brats",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "pork"],
+    "style": ["german"]
   },
   {
-    "name": "Spaghetti",
-    "course": "",
+    "name": "Spaghetti & Meatballs",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "lamb"],
+    "style": ["italian"]
   },
   {
     "name": "Lesagna",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": [""],
+    "style": ["italian"]
   },
   {
     "name": "Fondu",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "chicken", "shrimp"],
+    "style": ["american"]
   },
   {
     "name": "Gyros",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "lamb"],
+    "style": ["greek", "mediterianean"]
   },
   {
     "name": "Tacos",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "turkey"],
+    "style": ["mexican"]
   },
   {
     "name": "Fajitas",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "turkey"],
+    "style": ["mexican"]
   },
   {
     "name": "Spam",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["pork", "???"],
+    "style": ["american", "hawaiian"]
   },
   {
     "name": "Corn Dogs",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "pork"],
+    "style": ["american"]
   },
   {
     "name": "Spare Ribs",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["beef", "pork"],
+    "style": ["american"]
   },
   {
     "name": "Pulled Pork",
-    "course": "",
+    "course": "entree",
     "size": "main",
-    "protein": ""
+    "protein": ["pork"],
+    "style": ["american"]
   }
 ]

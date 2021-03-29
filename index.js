@@ -2,8 +2,8 @@ const recipes = require('./recipes')
 const utils = require('./utils')
 
 function findNewRecipe() {
-  var number = utils.randomIntFromRange(recipes.length - 1)
-  var item = recipes.splice(number, 1)[0]
+  const number = utils.randomIntFromRange(recipes.length - 1)
+  const item = recipes.splice(number, 1)[0]
 
   if (!lastPlan.includes(item.name)) {
     return item
@@ -24,8 +24,8 @@ function generateMealPlan(lastPlan) {
   return list
 }
 
-var lastPlan = utils.getLastPlan()
-var mealPlan = generateMealPlan(lastPlan)
-
+const lastPlan = utils.getLastPlan()
+const mealPlan = generateMealPlan(lastPlan)
 utils.savePlan(mealPlan)
+
 console.log(mealPlan)

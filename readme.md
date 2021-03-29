@@ -1,10 +1,21 @@
+# Purpose
+
+To help cut down on the effort going into meal planning each week
+
 # Roadmap
 
 - [x] Totally random
 - [x] Make fs based list of recipes
 - [x] Make fs based persistence
-- [ ] Don't reuse ones from last week
+- [x] Don't reuse ones from last week
 - [ ] Mix up primary ingredients
+  - [ ] Variety
+  - [ ] Healthy
+  - [ ] Pescatarian
+  - [ ] Vegitarian
+  - [ ] Vegan
+  - [ ] Reduced protein
+  - [ ] Specific array of options (E.g., "Fish, Beef, Fish, Chicken, Fish, Lamb, Fish")
 - [ ] Include 'eat-out' night. Set night of the week?
 - [ ] Respect religious days of the week that don't eat specific things on certain days of the week
 - [ ] Create list of places to eat out that can fit into the rest of the meal plan. E.g., don't offer up a chicken place if you've already had chicken twice this week.
