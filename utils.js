@@ -6,7 +6,14 @@ const randomIntFromRange = function (max) {
 }
 
 const getLastPlan = function () {
-  const lastPlan = JSON.parse(fs.readFileSync('./lastPlan.json'))
+  const lastPlan = []
+
+  try {
+    const lastPlan = JSON.parse(fs.readFileSync('./lastPlan.json'))
+  } catch (error) {
+    console.log(error)
+  }
+
   return lastPlan.map((value) => value.name, [])
 }
 

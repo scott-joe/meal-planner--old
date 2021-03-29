@@ -23,6 +23,7 @@ To help cut down on the effort going into meal planning each week
   - [ ] Work on fewer meals with meat
   - [ ] Specify how many days to eat out
   - [ ] Specify main course vs sides and build meals with appropriate sides
+- [ ] Interactive meal plan builder. Ask some questions to set options. Given a few options for each day, select as you go.
 
 ## Technical things
 
