@@ -2,6 +2,8 @@
 .git
 .vscode
 
+# Dependencies
+node_modules
+
 # Runtime files
 lastPlan.json
-node_modules

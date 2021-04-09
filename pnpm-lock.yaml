@@ -1,10 +1,12 @@
 lockfileVersion: 5.3
 
 specifiers:
+  husky: ^6.0.0
   lint-staged: ^10.5.4
   prettier: ^2.2.1
 
 devDependencies:
+  husky: 6.0.0
   lint-staged: 10.5.4
   prettier: 2.2.1
 
@@ -268,6 +270,11 @@ packages:
   /human-signals/1.1.1:
     resolution: {integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==}
     engines: {node: '>=8.12.0'}
+    dev: true
+
+  /husky/6.0.0:
+    resolution: {integrity: sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==}
+    hasBin: true
     dev: true
 
   /import-fresh/3.3.0:
