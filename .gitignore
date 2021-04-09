@@ -1,4 +1,7 @@
+# Local project files
 .git
 .vscode
 
+# Runtime files
 lastPlan.json
+node_modules

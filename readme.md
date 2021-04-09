@@ -6,6 +6,7 @@
 To help cut down on the effort going into meal planning each week
 
 ## Running
+
 1. `npm start` or `node .`
 
 ## Roadmap
