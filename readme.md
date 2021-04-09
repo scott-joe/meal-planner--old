@@ -1,8 +1,14 @@
-# Purpose
+
+# Meal Planner
+
+## Purpose
 
 To help cut down on the effort going into meal planning each week
 
-# Roadmap
+## Running
+1. `npm start` or `node .`
+
+## Roadmap
 
 - [x] Totally random
 - [x] Make fs based list of recipes
