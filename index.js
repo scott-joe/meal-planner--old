@@ -29,3 +29,4 @@ const mealPlan = generateMealPlan(lastPlan)
 utils.savePlan(mealPlan)
 
 console.log(mealPlan.map((meal) => meal.name))
+console.log(mealPlan.map((meal) => meal.name))
