@@ -1,7 +1,7 @@
-const recipes = require('./recipes')
+const recipes = require('../data/recipes')
 const utils = require('../utils')
 
-export default findNewRecipe = (lastPlan) => {
+const findNewRecipe = (lastPlan) => {
 	const number = utils.randomIntFromRange(recipes.length - 1)
 	const item = recipes.splice(number, 1)[0]
 
@@ -11,3 +11,5 @@ export default findNewRecipe = (lastPlan) => {
 		return findNewRecipe(lastPlan)
 	}
 }
+
+module.exports = findNewRecipe

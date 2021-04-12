@@ -1,9 +1,8 @@
 const fs = require('fs')
 const debug = require('debug')
-// const path = require('path')
-// const _ = require('lodash')
 
 const fsOpts = { encoding: 'utf-8' }
+
 const log = {
 	error: debug('error'),
 	console: debug('console'),
@@ -15,19 +14,20 @@ const randomIntFromRange = (max) => {
 }
 
 const getLastPlan = () => {
-	const lastPlan = []
-
 	try {
-		const lastPlan = JSON.parse(fs.readFileSync('./lastPlan.json'))
+		const lastPlan = JSON.parse(fs.readFileSync('data/lastPlan.json'))
+		return lastPlan.map((value) => value.name, [])
 	} catch (error) {
-		console.log(error)
+		return error
 	}
-
-	return lastPlan.map((value) => value.name, [])
 }
 
 const savePlan = (plan) => {
-	fs.writeFileSync('./lastPlan.json', JSON.stringify(plan))
+	try {
+		fs.writeFileSync('data/lastPlan.json', JSON.stringify(plan))
+	} catch (error) {
+		return error
+	}
 }
 
 // Sort by last (name) ascending

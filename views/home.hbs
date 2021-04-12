@@ -20,10 +20,10 @@
 </head>
 <body>
   <h1>Meal Plan</h1>
-  {{#each recipes as |recipe|}}
+  {{#each mealPlan as |meal|}}
   <div>
-    {{!-- <img src="/images/{{recipe.name}}_sm.jpg" alt="{{recipe.name}}"> --}}
-    <a href="/{{recipe.name}}">{{recipe.name}}</a>
+    {{!-- <img src="/images/{{meal.name}}_sm.jpg" alt="{{meal.name}}"> --}}
+    <a href="/{{meal.name}}">{{meal.name}}</a>
   </div>
   {{/each}}
 </body>

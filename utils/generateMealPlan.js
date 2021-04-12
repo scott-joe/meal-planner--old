@@ -1,7 +1,6 @@
-const utils = require('.')
-const findNewRecipe = require('./findNewRecipe')
+const findNewRecipe = require('../recipes/findNewRecipe')
 
-function generateMealPlan(lastPlan) {
+const generateMealPlan = (lastPlan) => {
 	let count = 7
 	let list = []
 
@@ -13,6 +12,4 @@ function generateMealPlan(lastPlan) {
 	return list
 }
 
-const lastPlan = utils.getLastPlan()
-const mealPlan = generateMealPlan(lastPlan)
-utils.savePlan(mealPlan)
+module.exports = generateMealPlan
