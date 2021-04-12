@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meal Plan</title>
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      padding: 1em;
+      font-size: 1.2em;
+    }
+    div a {
+      padding-left: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meal Plan</h1>
+  {{#each recipes as |recipe|}}
+  <div>
+    {{!-- <img src="/images/{{recipe.name}}_sm.jpg" alt="{{recipe.name}}"> --}}
+    <a href="/{{recipe.name}}">{{recipe.name}}</a>
+  </div>
+  {{/each}}
+</body>
+</html>

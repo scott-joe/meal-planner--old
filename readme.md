@@ -1,4 +1,3 @@
-
 # Meal Planner
 
 ## Purpose
@@ -38,3 +37,5 @@ To help cut down on the effort going into meal planning each week
 2. Create user's table with their recipes
 3. Create API to request their or all recipes
 4. Store the user's most recent list of used recipes
+5. Create server
+6. Create UI

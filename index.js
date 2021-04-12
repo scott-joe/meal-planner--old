@@ -1,32 +1,31 @@
-const recipes = require('./recipes')
-const utils = require('./utils')
+const express = require('express')
 
-function findNewRecipe(lastPlan) {
-	const number = utils.randomIntFromRange(recipes.length - 1)
-	const item = recipes.splice(number, 1)[0]
+// =================================
+// ===== CONFIGURE APPLICATION =====
+// =================================
+// Instantiate Express app instance
+const app = express()
 
-	if (!lastPlan.includes(item.name)) {
-		return item
-	} else {
-		return findNewRecipe(lastPlan)
-	}
-}
+// Set up JSON
+app.use(express.json())
 
-function generateMealPlan(lastPlan) {
-	let count = 7
-	let list = []
+// Set up body parser
+app.use(express.urlencoded({ extended: true }))
 
-	while (count > 0) {
-		list.push(findNewRecipe(lastPlan))
-		count = count - 1
-	}
+// Set up images directory
+app.use('/images', express.static('images'))
 
-	return list
-}
+// Kill requests for the favicon
+app.get('/favicon.ico', (_req, res) => res.end())
 
-const lastPlan = utils.getLastPlan()
-const mealPlan = generateMealPlan(lastPlan)
-utils.savePlan(mealPlan)
+// Routes
+const router = require('./routes')
+app.use('/', router)
 
-console.log(mealPlan.map((meal) => meal.name))
-console.log(mealPlan.map((meal) => meal.name))
+// =================================
+// ========= START SERVER ==========
+// =================================
+// Create Server listening on port 3000 & capture server object to use later
+const server = app.listen(3000, () => {
+	console.log(`App is running on port ${server.address().port}`)
+})
