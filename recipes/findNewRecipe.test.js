@@ -1,11 +1,26 @@
-import { jest } from '@jest/globals'
-import findNewRecipe from './findNewRecipe.js'
+const findNewRecipe = require('./findNewRecipe.js')
+const lastPlan = require('../data/lastPlan')
 
 describe('findNewRecipe', () => {
-	it('should return true', () => {
-		//Testing a boolean
-		expect(findNewRecipe()).toBeTruthy()
-		//Another way to test a boolean
-		// expect(forgotPassword()).toEqual(true)
+	it('should return an object', () => {
+		expect(() => {
+			findNewRecipe(lastPlan).toHaveReturned()
+		})
 	})
+
+	it('should throw error when no plan is provided', () => {
+		expect(() => {
+			findNewRecipe()
+		}).toThrow(Error('lastPlan not passed'))
+	})
+
+	xit('returned value should be an array', () => {
+		expect(() => {
+			findNewRecipe()
+		})
+	})
+
+	xit('should not return items from the last meal plan', () => {})
+
+	xit('should return an item', () => {})
 })
