@@ -12,6 +12,7 @@ specifiers:
   jest: ^26.6.3
   lint-staged: ^10.5.4
   lodash: ^4.17.20
+  module-alias: ^2.2.2
   nodemon: ^2.0.7
   prettier: ^2.2.1
   pug: ^3.0.1
@@ -25,6 +26,7 @@ dependencies:
   got: 11.8.2
   handlebars: 4.7.7
   lodash: 4.17.21
+  module-alias: 2.2.2
   pug: 3.0.2
 
 devDependencies:
@@ -3442,6 +3444,10 @@ packages:
       for-in: 1.0.2
       is-extendable: 1.0.1
     dev: true
+
+  /module-alias/2.2.2:
+    resolution: {integrity: sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==}
+    dev: false
 
   /ms/2.0.0:
     resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}

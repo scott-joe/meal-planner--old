@@ -1,5 +1,5 @@
-const findNewRecipe = require('./find-new-recipe.js')
-const lastPlan = require('../data/lastPlan')
+const { findNewRecipe } = require('@controllers/recipes')
+const lastPlan = require('@root/data/lastPlan')
 
 describe('findNewRecipe', () => {
 	it('should return an object', () => {

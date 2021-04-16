@@ -1,5 +1,5 @@
-const recipes = require('../data/recipes')
-const utils = require('../utils')
+const recipes = require('@root/data/recipes')
+const utils = require('@utils/index')
 
 const findNewRecipe = (lastPlan) => {
 	if (!!lastPlan) {

@@ -1,4 +1,4 @@
-const { findNewRecipe } = require('../recipes')
+const { findNewRecipe } = require('@controllers/recipes')
 
 const generateMealPlan = (lastPlan) => {
 	let count = 7

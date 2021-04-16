@@ -1,7 +1,9 @@
 const fs = require('fs')
+const path = require('path')
 const debug = require('debug')
 
 const fsOpts = { encoding: 'utf-8' }
+const dataDir = path.join(__dirname, '..', 'data')
 
 const log = {
 	error: debug('error'),
@@ -15,7 +17,9 @@ const randomIntFromRange = (max) => {
 
 const getLastPlan = () => {
 	try {
-		const lastPlan = JSON.parse(fs.readFileSync('data/lastPlan.json'))
+		const lastPlan = JSON.parse(
+			fs.readFileSync(path.join(dataDir, 'lastPlan.json'))
+		)
 		return lastPlan.map((value) => value.name, [])
 	} catch (error) {
 		return error
@@ -24,7 +28,7 @@ const getLastPlan = () => {
 
 const savePlan = (plan) => {
 	try {
-		fs.writeFileSync('data/lastPlan.json', JSON.stringify(plan))
+		fs.writeFileSync(path.join(dataDir, 'lastPlan.json'), JSON.stringify(plan))
 	} catch (error) {
 		return error
 	}
