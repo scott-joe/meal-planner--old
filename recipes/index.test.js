@@ -1,4 +1,4 @@
-const findNewRecipe = require('./findNewRecipe.js')
+const findNewRecipe = require('./find-new-recipe.js')
 const lastPlan = require('../data/lastPlan')
 
 describe('findNewRecipe', () => {

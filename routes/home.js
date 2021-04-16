@@ -1,7 +1,7 @@
 const express = require('express')
 const cons = require('consolidate')
 const utils = require('../utils')
-const generateMealPlan = require('../utils/generateMealPlan')
+const { generateMealPlan } = require('../plans')
 
 const router = express.Router({ mergeParams: true })
 

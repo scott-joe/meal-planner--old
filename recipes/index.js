@@ -16,4 +16,4 @@ const findNewRecipe = (lastPlan) => {
 	}
 }
 
-module.exports = findNewRecipe
+module.exports = { findNewRecipe }

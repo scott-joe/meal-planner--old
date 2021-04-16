@@ -1,4 +1,4 @@
-const findNewRecipe = require('../recipes/findNewRecipe')
+const { findNewRecipe } = require('../recipes')
 
 const generateMealPlan = (lastPlan) => {
 	let count = 7
@@ -12,4 +12,4 @@ const generateMealPlan = (lastPlan) => {
 	return list
 }
 
-module.exports = generateMealPlan
+module.exports = { generateMealPlan }
