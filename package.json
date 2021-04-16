@@ -12,7 +12,8 @@
 	"scripts": {
 		"start": "cross-env DEBUG=error nodemon ./src/server.js",
 		"dev": "cross-env DEBUG=console,error nodemon ./src/server.js",
-		"test": "cross-env NODE_OPTIONS=experimental-vm-modules jest"
+		"test": "cross-env NODE_OPTIONS=experimental-vm-modules jest",
+		"lint": "prettier --write"
 	},
 	"_moduleAliases": {
 		"@root": "src/",
