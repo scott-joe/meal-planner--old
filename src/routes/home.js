@@ -1,12 +1,15 @@
+// == IMPORTS ==
 const express = require('express')
 const path = require('path')
 const cons = require('consolidate')
 const utils = require('@utils')
 const { generateMealPlan } = require('@controllers/plans')
 
+// == SETUP ==
 const router = express.Router({ mergeParams: true })
 const viewsDir = path.join(__dirname, '..', 'views')
 
+// METHODS
 // Index
 router.get('/', (_req, res) => {
 	try {
@@ -30,4 +33,5 @@ router.get('/', (_req, res) => {
 	}
 })
 
+// == EXPORTS ==
 module.exports = router

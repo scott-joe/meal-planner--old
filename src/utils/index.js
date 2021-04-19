@@ -17,6 +17,7 @@ const randomIntFromRange = (max) => {
 
 const getLastPlan = () => {
 	try {
+		log.console(dataDir)
 		const lastPlan = JSON.parse(
 			fs.readFileSync(path.join(dataDir, 'lastPlan.json'))
 		)
