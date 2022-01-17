@@ -1,108 +1,133 @@
 -- -------------------------------------------------------------
--- TablePlus 3.12.6(366)
+-- TablePlus 4.5.2(402)
 --
 -- https://tableplus.com/
 --
 -- Database: meal-planner
--- Generation Time: 2021-04-16 16:34:00.0510
+-- Generation Time: 2022-01-17 16:31:16.4580
 -- -------------------------------------------------------------
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP TABLE IF EXISTS "public"."courses";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+-- Table Definition
+CREATE TABLE "public"."courses" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "name" varchar NOT NULL,
+    PRIMARY KEY ("id")
+);
 
+DROP TABLE IF EXISTS "public"."meals";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
+-- Table Definition
+CREATE TABLE "public"."meals" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "name" varchar NOT NULL,
+    "user" uuid NOT NULL,
+    PRIMARY KEY ("id")
+);
 
+DROP TABLE IF EXISTS "public"."meals:recipes";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
-DROP TABLE IF EXISTS `meals`;
-CREATE TABLE `meals` (
-  `id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
-  `user` binary(16) DEFAULT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Table Definition
+CREATE TABLE "public"."meals:recipes" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "meal" uuid NOT NULL,
+    "recipe" uuid NOT NULL,
+    PRIMARY KEY ("id")
+);
 
-DROP TABLE IF EXISTS `meals:recipes`;
-CREATE TABLE `meals:recipes` (
-  `meal` binary(16) NOT NULL,
-  `order` int DEFAULT NULL,
-  `course` enum('appetizer','main','side','dessert') DEFAULT NULL,
-  PRIMARY KEY (`meal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS "public"."plans";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
-DROP TABLE IF EXISTS `plans`;
-CREATE TABLE `plans` (
-  `id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
-  `user` binary(16) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Table Definition
+CREATE TABLE "public"."plans" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "name" varchar,
+    "user" uuid,
+    PRIMARY KEY ("id")
+);
 
-DROP TABLE IF EXISTS `plans:meals`;
-CREATE TABLE `plans:meals` (
-  `plan` binary(16) NOT NULL,
-  `meal` binary(16) DEFAULT NULL,
-  `order` int DEFAULT NULL,
-  PRIMARY KEY (`plan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS "public"."plans:meals";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
-DROP TABLE IF EXISTS `recipes`;
-CREATE TABLE `recipes` (
-  `id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
-  `user` binary(16) DEFAULT NULL,
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `course` set('appetizer','main','side','dessert') DEFAULT NULL,
-  `protein` enum('chicken','pork','beef','fish','seafood','lamb','egg') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Table Definition
+CREATE TABLE "public"."plans:meals" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "plan" uuid,
+    "meal" uuid,
+    PRIMARY KEY ("id")
+);
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
-  `username` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `first_name` varchar(30) DEFAULT NULL,
-  `last_name` varchar(30) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `ip_address` char(15) DEFAULT NULL,
-  `last_login` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS "public"."proteins";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
-INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `ip_address`, `last_login`, `created_at`, `updated_at`) VALUES
-(X'7BED33D29EDC11EB8E77AAD83DA997FA', 'scott-joe@pm.me', 'Scott', 'Williams', 'scott-joe@pm.me', '127.0.0.1', NULL, '2021-04-16 13:52:17', '2021-04-16 13:52:17');
+-- Table Definition
+CREATE TABLE "public"."proteins" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "name" varchar NOT NULL,
+    PRIMARY KEY ("id")
+);
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CreateUser`(
-  IN _username VARCHAR(30),
-  IN _first_name VARCHAR(30),
-  IN _last_name VARCHAR(30),
-  IN _email VARCHAR(30),
-  IN _ip_address CHAR(15)
-)
-BEGIN
-  INSERT INTO users(id, username, first_name, last_name, email, ip_address)
-  VALUES(UUID_TO_BIN(UUID()), _username, _first_name, _last_name, _email, _ip_address);
-END;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUserMeals`(
-	IN _user_id CHAR(36)
-)
-BEGIN
-  SELECT * FROM `meals` WHERE BIN_TO_UUID(user.id) = _user_id;
-END;
+DROP TABLE IF EXISTS "public"."recipes";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
 
+DROP TYPE IF EXISTS "public"."course";
+CREATE TYPE "public"."course" AS ENUM ('appetizer', 'main', 'side', 'dessert');
+DROP TYPE IF EXISTS "public"."protein";
+CREATE TYPE "public"."protein" AS ENUM ('chicken', 'pork', 'beef', 'fish', 'seafood', 'lamb', 'egg');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-- Table Definition
+CREATE TABLE "public"."recipes" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "name" varchar NOT NULL,
+    "user" uuid NOT NULL,
+    "course" "public"."course",
+    "protein" "public"."protein",
+    "style" style,
+    PRIMARY KEY ("id")
+);
+
+DROP TABLE IF EXISTS "public"."users";
+-- This script only contains the table creation statements and does not fully represent the table in the database. It's still missing: indices, triggers. Do not use it as a backup.
+
+-- Table Definition
+CREATE TABLE "public"."users" (
+    "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "first_name" varchar,
+    "last_name" varchar,
+    "email" varchar,
+    PRIMARY KEY ("id")
+);
+
+INSERT INTO "public"."courses" ("id", "name") VALUES
+('018fba88-e3b8-4ce8-8cb5-7052dd57636e', 'side'),
+('6a31cb97-f190-4cd3-9184-b55c2abce3f1', 'appetizer'),
+('a0a205e9-6b4b-4bc5-8579-55813cc70f4f', 'main'),
+('f9b459d1-fb63-41e5-bc0d-3ef6d6887b46', 'dessert');
+
+INSERT INTO "public"."proteins" ("id", "name") VALUES
+('3163d6e8-0e5e-4064-96a2-bf66050b07b1', 'lamb'),
+('58927e3d-c0d6-4e1c-b3b6-bb6a73a92016', 'chicken'),
+('73d64456-f92a-435b-8433-3b1110c8cf81', 'fish'),
+('7f03d942-dae0-4a22-b101-6a9f23b831b5', 'egg'),
+('8d986e4f-a7af-47ff-8106-0b935cc000b2', 'seafood'),
+('c35139f4-6db9-44cd-8756-8b749e047ea1', 'pork'),
+('edaf9dda-1235-472d-9fb8-da1ff4dd6ae6', 'beef');
+
+INSERT INTO "public"."users" ("id", "first_name", "last_name", "email") VALUES
+('53ddece3-6621-46d2-abd1-97e7fca5bd2d', 'Emily', 'Williams', 'emtrimble@gmail.com'),
+('8065d2db-19ee-498e-baad-3e870065d602', 'Scott', 'Williams', 'scott.joe.williams@gmail.com');
+
+ALTER TABLE "public"."meals" ADD FOREIGN KEY ("user") REFERENCES "public"."users"("id");
+ALTER TABLE "public"."meals:recipes" ADD FOREIGN KEY ("meal") REFERENCES "public"."meals"("id");
+ALTER TABLE "public"."meals:recipes" ADD FOREIGN KEY ("recipe") REFERENCES "public"."recipes"("id");
+ALTER TABLE "public"."plans" ADD FOREIGN KEY ("user") REFERENCES "public"."users"("id");
+ALTER TABLE "public"."plans:meals" ADD FOREIGN KEY ("meal") REFERENCES "public"."meals"("id");
+ALTER TABLE "public"."plans:meals" ADD FOREIGN KEY ("plan") REFERENCES "public"."plans"("id");
+ALTER TABLE "public"."recipes" ADD FOREIGN KEY ("user") REFERENCES "public"."users"("id");
