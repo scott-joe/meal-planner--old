@@ -10,8 +10,8 @@
 		"pnpm": ">=6.0.0"
 	},
 	"scripts": {
-		"start": "cross-env DEBUG=error nodemon ./src/server.js",
-		"dev": "cross-env DEBUG=console,error nodemon ./src/server.js",
+		"start": "cross-env DEBUG=error nodemon -r dotenv/config ./src/server.js",
+		"dev": "cross-env DEBUG=console,error nodemon -r dotenv/config ./src/server.js",
 		"test": "cross-env NODE_OPTIONS=experimental-vm-modules jest",
 		"lint": "prettier --write"
 	},
@@ -38,6 +38,7 @@
 		"pug": "^3.0.1"
 	},
 	"devDependencies": {
+		"dotenv": "^14.2.0",
 		"husky": "^6.0.0",
 		"jest": "^26.6.3",
 		"lint-staged": "^10.5.4",
