@@ -1,7 +1,7 @@
-const { findNewRecipe } = require('@controllers/recipes')
-const { log } = require('@utils')
-const fs = require('fs')
 const path = require('path')
+const fs = require('fs')
+const { findNewRecipe } = require('@controllers/recipes')
+const { log, fsOpts } = require('@utils')
 
 const writeFile = fs.promises.writeFile
 const readFile = fs.promises.readFile
@@ -9,9 +9,12 @@ const dataDir = path.join(__dirname, '..', '..', 'data')
 
 const getLastMealPlan = async () => {
 	try {
-		return readFile(path.join(dataDir, 'lastPlan.json'))
+		// Get the last meal plan and return it
+		return readFile(path.join(dataDir, 'lastPlan.json'), fsOpts)
 			.then((rawJSON) => {
+				// Parse the JSON
 				const lastPlan = JSON.parse(rawJSON)
+				// Return a simple array version of the list
 				return lastPlan.map((value) => value.name, [])
 			})
 			.catch((error) => {
@@ -19,16 +22,20 @@ const getLastMealPlan = async () => {
 			})
 	} catch (error) {
 		log.error(error)
+		return error
 	}
 }
 
 const saveMealPlan = (plan) => {
 	try {
+		// Save the new meal plan to disk
 		writeFile(
 			path.join(dataDir, 'lastPlan.json'), 
-			JSON.stringify(plan)
+			JSON.stringify(plan),
+			fsOpts
 		).catch((error) => log.error(error))
 	} catch (error) {
+		log.error(error)
 		return error
 	}
 }
@@ -46,7 +53,7 @@ const generateMealPlan = async () => {
 		count = count - 1
 	}
 	
-	// Save the new meal plan
+	// Save the new meal plan to become the 'last' meal plan
 	saveMealPlan(list)
 
 	return list

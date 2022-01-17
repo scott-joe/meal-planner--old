@@ -14,7 +14,7 @@ const viewsDir = path.join(__dirname, '..', 'views')
 router.get('/', async (_req, res) => {
 	try {
 		// Generate a new meal plan
-		const mealPlan = generateMealPlan()
+		const mealPlan = await generateMealPlan()
 		// Return new meal plan to browser
 		cons.handlebars(
 			path.join(viewsDir, 'home.hbs'),
