@@ -1,9 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const debug = require('debug')
-
 const fsOpts = { encoding: 'utf-8' }
-const dataDir = path.join(__dirname, '..', 'data')
 
 const log = {
 	error: debug('error'),
@@ -13,26 +11,6 @@ const log = {
 const randomIntFromRange = (max) => {
 	max = Math.floor(max)
 	return Math.floor(Math.random() * (max - 1))
-}
-
-const getLastPlan = () => {
-	try {
-		log.console(dataDir)
-		const lastPlan = JSON.parse(
-			fs.readFileSync(path.join(dataDir, 'lastPlan.json'))
-		)
-		return lastPlan.map((value) => value.name, [])
-	} catch (error) {
-		return error
-	}
-}
-
-const savePlan = (plan) => {
-	try {
-		fs.writeFileSync(path.join(dataDir, 'lastPlan.json'), JSON.stringify(plan))
-	} catch (error) {
-		return error
-	}
 }
 
 // Sort by last (name) ascending
@@ -51,7 +29,5 @@ module.exports = {
 	fsOpts,
 	log,
 	compare,
-	randomIntFromRange,
-	getLastPlan,
-	savePlan,
+	randomIntFromRange
 }

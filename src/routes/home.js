@@ -2,23 +2,19 @@
 const express = require('express')
 const path = require('path')
 const cons = require('consolidate')
-const utils = require('@utils')
+const { log } = require('@utils')
 const { generateMealPlan } = require('@controllers/plans')
 
 // == SETUP ==
 const router = express.Router({ mergeParams: true })
 const viewsDir = path.join(__dirname, '..', 'views')
 
-// METHODS
+// == METHODS ==
 // Index
-router.get('/', (_req, res) => {
+router.get('/', async (_req, res) => {
 	try {
-		// Get the last meal plan
-		const lastPlan = utils.getLastPlan()
 		// Generate a new meal plan
-		const mealPlan = generateMealPlan(lastPlan)
-		// Save the new meal plan
-		utils.savePlan(mealPlan)
+		const mealPlan = generateMealPlan()
 		// Return new meal plan to browser
 		cons.handlebars(
 			path.join(viewsDir, 'home.hbs'),
@@ -29,7 +25,7 @@ router.get('/', (_req, res) => {
 			}
 		)
 	} catch (error) {
-		utils.log.error(error)
+		log.error(error)
 	}
 })
 
