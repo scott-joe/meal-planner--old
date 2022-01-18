@@ -14,8 +14,7 @@ const viewsDir = path.join(__dirname, '..', 'views')
 // Index
 router.get('/', async (_req, res) => {
 	try {
-		const dbTest = await store()
-		console.log(dbTest.map((course) => course.name))
+		// const dbTest = await store()
 
 		// Generate a new meal plan
 		const mealPlan = await generateMealPlan()

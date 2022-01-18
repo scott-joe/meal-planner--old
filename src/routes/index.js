@@ -18,9 +18,14 @@ const router = express.Router({ mergeParams: true })
 // const userRouter = require('./user')
 // router.use('/:username', userRouter)
 
+// User routes
+const recipeRouter = require('./recipe')
+router.use('/recipe/:id', recipeRouter)
+
 // Home routes
 const homeRouter = require('./home')
 router.use('/', homeRouter)
+
 
 // Exports
 module.exports = router

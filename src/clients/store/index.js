@@ -1,28 +1,36 @@
 // DB Client
 const { Client } = require('pg')
-const opts = {
-	user: process.env.PGUSER,
-	host: process.env.PGHOST,
-	database: process.env.PGDATABASE,
-	password: process.env.PGPASSWORD,
-	port: process.env.PGPORT
-}
+const storeConfig = require('@config/store')
 
-const store = async () => {
+// async function* store() {
+// 	try {
+// 		const client = new Client(storeConfig)
+// 		await client.connect()
+// 		yield
+// 		await client.end()
+// 		yield
+// 	} catch (err) {
+// 		console.log(err.stack)
+// 	}
+// }
+
+const query = async (query) => {
+	// const db = await store()
 	try {
-		const client = new Client(opts)
-
+		const client = new Client(storeConfig)
 		await client.connect()
-
-		// const res = await client.query(text, values)
-		const res = await client.query('SELECT name from courses')
-		
+		const res = await client.query(query)
 		await client.end()
-		
 		return res.rows
 	} catch (err) {
 		console.log(err.stack)
 	}
+	// db.next()
+	// return res.rows
 }
 
-module.exports = { store }
+module.exports = { 
+	store: {
+		query
+	}
+}

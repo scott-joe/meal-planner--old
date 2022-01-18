@@ -1,8 +1,9 @@
-let config = {
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'meal-planner',
+let storeConfig = {
+	user: process.env.PGUSER,
+	host: process.env.PGHOST,
+	database: process.env.PGDATABASE,
+	password: process.env.PGPASSWORD,
+	port: process.env.PGPORT
 }
 
-module.exports = config
+module.exports = storeConfig
